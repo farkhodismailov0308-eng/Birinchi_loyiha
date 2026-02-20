@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mening Blogim</title>
+</head>
+<body>
+    <h1>Barcha maqolalar:</h1>
+    <hr>
+
+    {% for maqola in maqolalar %}
+        <div>
+            <h2>{{ maqola.sarlavha }}</h2>
+            <p>{{ maqola.matn }}</p>
+            <small>Yozilgan vaqti: {{ maqola.yaratilgan_sana }}</small>
+        </div>
+        <hr>
+    {% empty %}
+        <p>Hozircha maqolalar yo'q. Admin paneldan qo'shing!</p>
+    {% endfor %}
+</body>
+</html>

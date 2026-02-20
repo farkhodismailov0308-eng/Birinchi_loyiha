@@ -1,21 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Mening Blogim</title>
-</head>
-<body>
-    <h1>Barcha maqolalar:</h1>
-    <hr>
+{% extends 'base.html' %}
 
+{% block title %}Barcha maqolalar{% endblock %}
+
+{% block content %}
+<h1 class="mb-4 text-primary">Barcha maqolalar:</h1>
+
+<div class="row">
     {% for maqola in maqolalar %}
-        <div>
-            <h2>{{ maqola.sarlavha }}</h2>
-            <p>{{ maqola.matn }}</p>
-            <small>Yozilgan vaqti: {{ maqola.yaratilgan_sana }}</small>
+    <div class="col-md-6 mb-3">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title text-dark"><strong>{{ maqola.sarlavha }}</strong></h5>
+                <p class="card-text text-muted">
+                    <strong>Manzil:</strong> {{ maqola.manzil|default:"Noma'lum" }} <br>
+                    <strong>Telefon:</strong> {{ maqola.tel|default:"Ko'rsatilmagan" }}
+                </p>
+                <a href="{% url 'detail' maqola.pk %}" class="btn btn-outline-primary btn-sm">Batafsil o'qish</a>
+            </div>
+            <div class="card-footer text-muted small">
+                Yozilgan vaqti: {{ maqola.yaratilgan_sana|date:"d.m.Y, H:i" }}
+            </div>
         </div>
-        <hr>
-    {% empty %}
-        <p>Hozircha maqolalar yo'q. Admin paneldan qo'shing!</p>
+    </div>
     {% endfor %}
-</body>
-</html>
+</div>
+{% endblock %}
