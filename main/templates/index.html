@@ -11,10 +11,10 @@
         <div class="card shadow-sm">
             <div class="card-body">
                 <h5 class="card-title text-dark"><strong>{{ maqola.sarlavha }}</strong></h5>
-                <p class="card-text text-muted">
-                    <strong>Manzil:</strong> {{ maqola.manzil|default:"Noma'lum" }} <br>
-                    <strong>Telefon:</strong> {{ maqola.tel|default:"Ko'rsatilmagan" }}
-                </p>
+               <p class="card-text text-muted">
+    <strong>Manzil:</strong> {{ maqola.manzil|default:"Noma'lum" }} <br>
+    <strong>Telefon:</strong> {{ maqola.telefon|default:"Ko'rsatilmagan" }}
+</p>
                 <a href="{% url 'detail' maqola.pk %}" class="btn btn-outline-primary btn-sm">Batafsil o'qish</a>
             </div>
             <div class="card-footer text-muted small">
